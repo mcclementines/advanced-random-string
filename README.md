@@ -15,7 +15,7 @@ Add `advanced-random-string` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-advanced-random-string = "0.1.1"
+advanced-random-string = "0.1.2"
 ```
 
 ## Usage
