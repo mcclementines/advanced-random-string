@@ -15,7 +15,7 @@ Add `advanced-random-string` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-advanced-random-string = "0.1.2"
+advanced-random-string = "0.1.3"
 ```
 
 ## Usage
@@ -23,23 +23,32 @@ advanced-random-string = "0.1.2"
 ### Generate a Random String with a Customizable Character Set
 
 ```rust
-use advanced_random_string::{charset, generate};
+use advanced_random_string::{charset, random_string};
 
-let random_string = generate(10, charset::BASE62);
+let random_string = random_string::generate(10, charset::BASE62);
 println!("Generated string: {}", random_string);
 
 // Specify a custom charset
 let charset = b"MY_CHARSET";
-let random_string_with_custom_charset = generate(10, charset);
+let random_string_with_custom_charset = random_string::generate(10, charset);
 println!("Generated string: {}", random_string_with_custom_charset);
+```
+
+### Generate an Unsecure Random String
+
+```rust
+use advanced_random_string::{charset, random_string};
+
+let random_string = random_string::generate_unsecure(10, charset::BASE62);
+println!("Generated string: {}", random_string);
 ```
 
 ### Generate a Cryptographically Secure Random String
 
 ```rust
-use advanced_random_string::{charset, generate_os_secure};
+use advanced_random_string::{charset, random_string};
 
-let random_string = generate_os_secure(10, charset::BASE62);
+let random_string = random_string::generate_os_secure(10, charset::BASE62);
 println!("Generated string: {}", random_string);
 ```
 
@@ -48,10 +57,10 @@ println!("Generated string: {}", random_string);
 ```rust
 use rand::SeedableRng;
 use rand::rngs::SmallRng;
-use advanced_random_string::{charset, generate_with_rng};
+use advanced_random_string::{charset, random_string};
 
 let mut rng = SmallRng::from_entropy();
-let random_string = generate_with_rng(10, charset::BASE62, &mut rng);
+let random_string = random_string::generate_with_rng(10, charset::BASE62, &mut rng);
 println!("Generated string: {}", random_string);
 ```
 

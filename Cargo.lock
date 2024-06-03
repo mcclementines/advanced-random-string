@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "advanced-random-string"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "rand",
 ]

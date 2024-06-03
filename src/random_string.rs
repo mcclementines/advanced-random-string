@@ -20,14 +20,14 @@ use rand::{
 /// # Examples
 ///
 /// ```
-/// use advanced_random_string::{charset, generate};
+/// use advanced_random_string::{charset, random_string};
 ///
-/// let random_string = generate(10, charset::BASE62);
+/// let random_string = random_string::generate(10, charset::BASE62);
 /// println!("Generated string: {}", random_string);
 ///
 /// // Specify a custom charset
 /// let charset = b"MY_CHARSET";
-/// let random_string_with_custom_charset = generate(10, charset);
+/// let random_string_with_custom_charset = random_string::generate(10, charset);
 /// println!("Generated string: {}", random_string_with_custom_charset);
 /// ```
 pub fn generate(length: usize, charset: &[u8]) -> String {
@@ -50,9 +50,9 @@ pub fn generate(length: usize, charset: &[u8]) -> String {
 /// # Examples
 ///
 /// ```
-/// use advanced_random_string::{charset, generate_unsecure};
+/// use advanced_random_string::{charset, random_string};
 ///
-/// let random_string = generate_unsecure(10, charset::BASE62);
+/// let random_string = random_string::generate_unsecure(10, charset::BASE62);
 /// println!("Generated string: {}", random_string);
 /// ```
 pub fn generate_unsecure(length: usize, charset: &[u8]) -> String {
@@ -75,9 +75,9 @@ pub fn generate_unsecure(length: usize, charset: &[u8]) -> String {
 /// # Examples
 ///
 /// ```
-/// use advanced_random_string::{charset, generate_os_secure};
+/// use advanced_random_string::{charset, random_string};
 ///
-/// let random_string = generate_os_secure(10, charset::BASE62);
+/// let random_string = random_string::generate_os_secure(10, charset::BASE62);
 /// println!("Generated string: {}", random_string);
 /// ```
 pub fn generate_os_secure(length: usize, charset: &[u8]) -> String {
@@ -103,10 +103,10 @@ pub fn generate_os_secure(length: usize, charset: &[u8]) -> String {
 /// ```
 /// use rand::SeedableRng;
 /// use rand::rngs::SmallRng;
-/// use advanced_random_string::{charset, generate_with_rng};
+/// use advanced_random_string::{charset, random_string};
 ///
 /// let mut rng = SmallRng::from_entropy();
-/// let random_string = generate_with_rng(10, charset::BASE62, &mut rng);
+/// let random_string = random_string::generate_with_rng(10, charset::BASE62, &mut rng);
 /// println!("Generated string: {}", random_string);
 /// ```
 pub fn generate_with_rng<R: Rng>(length: usize, charset: &[u8], rng: &mut R) -> String {
